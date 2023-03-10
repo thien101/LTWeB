@@ -1,0 +1,88 @@
+﻿
+@model _19T1021252.DomainModels.Employee
+@{
+    //string t = (Model.BirthDate.ToString("yyyy-MM-dd") != "0001-01-01") ? Model.BirthDate.ToString("yyyy-MM-dd") : "";
+}
+
+<div class="box box-primary">
+    <div class="box-body">
+
+        <form class="form-horizontal" action="~/Employee/Save" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="EmployeeID" value="@Model.EmployeeID" />
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Họ:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" autofocus name="FirstName" value="@Model.FirstName">
+                    @Html.ValidationMessageFor(m => m.FirstName, "", new { @style="color:#f00"})
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Tên nhân viên:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="@Model.LastName" name="LastName">
+                    @Html.ValidationMessageFor(m => m.LastName, "", new { @style = "color:#f00" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Ngày sinh:</label>
+                <div class="col-sm-10">
+                    @Html.HiddenFor(m => m.BirthDate)
+                    <input type="text" class="form-control" value="@string.Format("{0:dd/MM/yyyy}", Model.BirthDate)" name="birthday">
+                    @Html.ValidationMessageFor(m => m.BirthDate, "", new { @style = "color:#f00" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Mô tả:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="@Model.Notes" name="Notes">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Email:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="@Model.Email" name="Email">
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @style = "color:#f00" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">File Image:</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" name="uploadPhoto" accept="image/*"
+                           onchange="document.getElementById('photo').src = window.URL.createObjectURL(this.files[0])"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2"></label>
+                <div class="col-sm-10">
+                    @Html.HiddenFor(m => m.Photo);
+                    <img id="photo" src="~/@Model.Photo" class="img img-bordered" width="304" height="236"/>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">
+                        <i class="glyphicon glyphicon-floppy-disk"></i>
+                        Lưu dữ liệu
+                    </button>
+                    <a href="~/Employee" class="btn btn-warning">Quay lại</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,9 @@
+C:\Users\ASUS\Desktop\LapTrinhWeb\19T1021252\19T1021252.DataLayers\bin\Debug\19T1021252.DataLayers.dll
+C:\Users\ASUS\Desktop\LapTrinhWeb\19T1021252\19T1021252.DataLayers\bin\Debug\19T1021252.DataLayers.pdb
+C:\Users\ASUS\Desktop\LapTrinhWeb\19T1021252\19T1021252.DataLayers\bin\Debug\19T1021252.DomainModels.dll
+C:\Users\ASUS\Desktop\LapTrinhWeb\19T1021252\19T1021252.DataLayers\bin\Debug\19T1021252.DomainModels.pdb
+C:\Users\ASUS\Desktop\LapTrinhWeb\19T1021252\19T1021252.DataLayers\obj\Debug\19T1021252.DataLayers.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\LapTrinhWeb\19T1021252\19T1021252.DataLayers\obj\Debug\19T1021252.DataLayers.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\LapTrinhWeb\19T1021252\19T1021252.DataLayers\obj\Debug\19T1021252.DataLayers.csproj.CopyComplete
+C:\Users\ASUS\Desktop\LapTrinhWeb\19T1021252\19T1021252.DataLayers\obj\Debug\19T1021252.DataLayers.dll
+C:\Users\ASUS\Desktop\LapTrinhWeb\19T1021252\19T1021252.DataLayers\obj\Debug\19T1021252.DataLayers.pdb
