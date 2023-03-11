@@ -80,9 +80,12 @@ namespace _19T1021252.BusinessLayers
             Order data = orderDB.Get(orderID);
             if (data == null)
                 return false;
-            
+
             //TODO: Kiểm tra xem việc hủy bỏ đơn hàng có hợp lý đối với trạng thái hiện tại của đơn hàng hay không?
             //... Your code here ...
+
+            if (data.Status > 1)
+                return false;
 
             data.Status = OrderStatus.CANCEL;
             data.FinishedTime = DateTime.Now;
@@ -101,6 +104,8 @@ namespace _19T1021252.BusinessLayers
 
             //TODO: Kiểm tra xem việc từ chối đơn hàng có hợp lý đối với trạng thái hiện tại của đơn hàng hay không?
             //... Your code here ...
+            if (data.Status > 1)
+                return false;
 
             data.Status = OrderStatus.REJECTED;
             data.FinishedTime = DateTime.Now;
@@ -120,7 +125,7 @@ namespace _19T1021252.BusinessLayers
             //TODO: Kiểm tra xem việc chấp nhận đơn hàng có hợp lý đối với trạng thái hiện tại của đơn hàng hay không?
             //... Your code here ...
 
-            if (data.Status >= 2)
+            if (data.Status >= 2 || data.Status < 0)
                 return false;
 
             data.Status = OrderStatus.ACCEPTED;
