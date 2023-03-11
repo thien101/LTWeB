@@ -40,7 +40,7 @@ namespace _19T1021252.Web
             list.Add(new SelectListItem()
             {
                 Value = "0",
-                Text = "-- Loại hàng --",
+                Text = "-- Nhà cung cấp --",
             });
 
             foreach (var item in CommonDataService.ListOfSuppliers())
@@ -61,7 +61,7 @@ namespace _19T1021252.Web
             list.Add(new SelectListItem()
             {
                 Value = "0",
-                Text = "-- Nhà cung cấp --",
+                Text = "-- Loại hàng  --",
             });
 
             foreach (var item in CommonDataService.ListOfCategories())

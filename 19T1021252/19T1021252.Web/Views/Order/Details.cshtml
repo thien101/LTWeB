@@ -3,10 +3,17 @@
     ViewBag.Title = "Quản lý đơn hàng";
     decimal sumTotal = 0;
     int stt = 0;
-
+    string errorMessage = ViewBag.ErrorMessage.ToString();
 }
 
 <div class="box box-primary">
+    @if (!string.IsNullOrWhiteSpace(errorMessage))
+    {
+    <div class="alert alert-warning alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Lỗi!</strong> @errorMessage
+    </div>
+    }
     <div class="box-header text-right">
         <div class="btn-group">
             <!-- //TODO
@@ -62,7 +69,7 @@
             <label class="control-label col-sm-2">Địa chỉ:</label>
             <div class="col-sm-10">
                 <p class="form-control-static">@Model.CustomerAddress</p>
-            </div>            
+            </div>
             <label class="control-label col-sm-2">Email:</label>
             <div class="col-sm-4">
                 <p class="form-control-static">@Model.CustomerEmail</p>
@@ -113,46 +120,45 @@
                 </thead>
                 <tbody>
                     @*@for (int i = 1; i <= 5; i++)
-        {
-            <tr>
-                <td class="text-center">@i</td>
-                <td>Samsung Series 9 NP900X4C Premium Ultrabook</td>
-                <td class="text-center">Cái</td>
-                <td class="text-center">2</td>
-                <td class="text-right">18,700,000</td>
-                <td class="text-right">37,400,000</td>
-                <td class="text-right">
-                    <a href="~/Order/EditDetail/111/222" class="btn btn-xs btn-primary btn-modal">
-                        <i class="fa fa-edit"></i>
-                    </a>
-                    <a href="~/Order/DeleteDetail/111/222" class="btn btn-xs btn-danger" onclick="return confirm('Xóa mặt hàng này khỏi đơn hàng?')">
-                        <i class="fa fa-trash"></i>
-                    </a>
-                </td>
-            </tr>
-        }*@
+                        {
+                            <tr>
+                                <td class="text-center">@i</td>
+                                <td>Samsung Series 9 NP900X4C Premium Ultrabook</td>
+                                <td class="text-center">Cái</td>
+                                <td class="text-center">2</td>
+                                <td class="text-right">18,700,000</td>
+                                <td class="text-right">37,400,000</td>
+                                <td class="text-right">
+                                    <a href="~/Order/EditDetail/111/222" class="btn btn-xs btn-primary btn-modal">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a href="~/Order/DeleteDetail/111/222" class="btn btn-xs btn-danger" onclick="return confirm('Xóa mặt hàng này khỏi đơn hàng?')">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }*@
 
                     @foreach (var item in _19T1021252.BusinessLayers.OrderService.ListOrderDetails(Model.OrderID))
                     {
                         stt += 1;
                         sumTotal += item.TotalPrice;
-                        <tr>
-                            <td class="text-center">@stt</td>
-                            <td>@item.ProductName</td>
-                            <td class="text-center">@item.Unit</td>
-                            <td class="text-center">@item.Quantity</td>
-                            <td class="text-right">@item.SalePrice</td>
-                            <td class="text-right">@item.TotalPrice</td>
-                            <td class="text-right">
-                                <a href="~/Order/EditDetail/@Model.OrderID/@item.ProductID" class="btn btn-xs btn-primary btn-modal">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-                                <a href="~/Order/DeleteDetail/@Model.OrderID/@item.ProductID" class="btn btn-xs btn-danger" onclick="return confirm('Xóa mặt hàng này khỏi đơn hàng?')">
-                                    <i class="fa fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    }
+        <tr>
+            <td class="text-center">@stt</td>
+            <td>@item.ProductName</td>
+            <td class="text-center">@item.Unit</td>
+            <td class="text-center">@item.Quantity</td>
+            <td class="text-right">@item.SalePrice</td>
+            <td class="text-right">@item.TotalPrice</td>
+            <td class="text-right">
+                <a href="~/Order/EditDetail/@Model.OrderID/@item.ProductID" class="btn btn-xs btn-primary btn-modal">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <a href="~/Order/DeleteDetail/@Model.OrderID/@item.ProductID" class="btn btn-xs btn-danger" onclick="return confirm('Xóa mặt hàng này khỏi đơn hàng?')">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>}
 
                 </tbody>
                 <tfoot>

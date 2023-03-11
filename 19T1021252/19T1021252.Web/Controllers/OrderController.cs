@@ -80,6 +80,9 @@ namespace _19T1021252.Web.Controllers
             if(data == null)
                 return RedirectToAction("Index");
 
+            TempData[ERROR_MESSAGE] = "";
+            ViewBag.ErrorMessage = TempData[ERROR_MESSAGE] ?? "";
+
             return View(data);
         }
 
@@ -149,6 +152,9 @@ namespace _19T1021252.Web.Controllers
         {
             //TODO: Code chức năng chấp nhận đơn hàng (nếu được phép)
             bool result = OrderService.AcceptOrder(id);
+
+            if (result == false)
+                TempData[ERROR_MESSAGE] = "Đơn hàng đã được duyệt";
 
             return RedirectToAction($"Details/{id}");
         }

@@ -85,6 +85,10 @@ namespace _19T1021252.Web.Controllers
                 ModelState.AddModelError(nameof(data.Unit), "Đơn vị tính không được để trống");
             if (data.Price == 0)
                 ModelState.AddModelError(nameof(data.Price), "Giá hàng phải lớn hơn 0");
+            if (data.CategoryID == 0)
+                ModelState.AddModelError(nameof(data.CategoryID), "Phải chọn loại hàng");
+            if (data.SupplierID == 0)
+                ModelState.AddModelError(nameof(data.SupplierID), "Phải chọn nhà cung cấp");
 
             data.Photo = "";
 

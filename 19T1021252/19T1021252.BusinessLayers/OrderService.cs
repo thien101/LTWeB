@@ -141,7 +141,7 @@ namespace _19T1021252.BusinessLayers
 
             //TODO: Kiểm tra xem việc xác nhận đã chuyển hàng có hợp lý đối với trạng thái hiện tại của đơn hàng hay không?
             //... Your code here ...
-            if (data.Status > 2 || data.Status >= 3)
+            if (data.Status <= 1 || data.Status >= 3)
                 return false;
 
             data.Status = OrderStatus.SHIPPING;
@@ -162,7 +162,7 @@ namespace _19T1021252.BusinessLayers
 
             //TODO: Kiểm tra xem việc ghi nhận đơn hàng kết thúc thành công có hợp lý đối với trạng thái hiện tại của đơn hàng hay không?
             //... Your code here ...
-            if (data.Status > 3 || data.Status >= 4)
+            if (data.Status <= 2 || data.Status >= 4)
                 return false;
 
             data.Status = OrderStatus.FINISHED;
